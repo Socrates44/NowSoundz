@@ -1,38 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Annie Use Your Telescope', cursive;
+}
+body {
+background:#083b0b;
+}
 .App {
+  text-align: center;
+  padding:0 16px;
+  margin:0 auto;
+  font-family: 'Verdana', 'Helvetica', sans-serif;
+  color:#f4f4f4;
+}
+
+h2{
+  margin-top: 30px;
+}
+
+header {
+  padding:16px 0;
+  font-size:20px;
+  text-transform:uppercase;
+}
+
+.guitar {
+  padding:13px;
+  background:#083b0b;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.guitar-body-container {
+  margin:0 0 25px;
+  display:flex;
+  justify-content:center;
+}
+.guitar-body {
+  width:250px;
+  height:160px;
+  padding:24px 0;
+  background:#543;
+  position:relative;
+}
+.guitar-body::before {
+  content:'';
+  width:130px;
+  height:130px;
+  position:absolute;
+  top:11px;
+  left:40px;
+  z-index:0;
+  background:#321;
+  border:4px solid #210;
+  border-radius:50%;
+}
+.guitar-body::after {
+  content:'';
+  width:8px;
+  height:100%;
+  position:absolute;
+  top:0;
+  right:0;
+  background:#dcb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.body-strings {
+  height:100%;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.body-string {
+  flex-grow:1;
+  position:relative;
+  z-index:10;
+}
+.body-string::before {
+  content:'';
+  width:100%;
+  height:3px;
+  position:absolute;
+  top:50%;
+  left:0;
+  margin-top:-1px;
+  background:#fee;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.strum-dir-btn {
+  width:40px;
+  height:40px;
+  text-align:center;
+  line-height:44px;
+  position:absolute;
+  top:6px;
+  right:14px;
+  z-index:20;
+  font-size:30px;
+  background:#908172;
+  box-shadow:-2px 3px 6px -2px rgba(0,0,0,0.6);
+  border:2px solid white;
+  border-radius:4px;
+  cursor:pointer;
+}
+.strum-dir-btn:hover {
+  background:#ab9b8c;
+}
+
+.strum-dir-btn input {
+  width:0;
+  height:0;
+  position:absolute;
+  opacity:0;
+}
+
+.fretboard-container {
+  display:flex;
+  overflow:auto;
+  position:relative;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.fretboard-container svg {
+  display:block;
+}
+
+.fretboard-bg {
+  background:#3f2105;
+}
+
+.mute-btns {
+  display:flex;
+  flex-direction:column-reverse;
+}
+.mute-btn input {
+  width:0;
+  height:0;
+  position:absolute;
+  opacity:0;
+}
+.mute-btn label {
+  width:30px;
+  height:40px;
+  display:block;
+  background:rgba(204, 187, 170, 0.5);
+  border:1px solid #fff;
+  border-radius:2px;
+  position:relative;
+  cursor:pointer;
+}
+.mute-btn input:checked + label::before,
+.mute-btn input:checked + label::after {
+  content:'';
+  width:2px;
+  height: 40px;
+  position:absolute;
+  top:0;
+  left:11px;
+  background:#a00;
+}
+.mute-btn input:checked + label::before {
+  transform:rotate(45deg);
+}
+.mute-btn input:checked + label::after {
+  transform:rotate(-45deg);
+}
+
+.fret-markers {
+  position:absolute;
+  top:0;
+
+}
+
+.fret-markers circle {
+  pointer-events:none;
+}
+
+.chordMaker{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rootNoteContainer, .chordTypeContainer{
+  display: inline-block;
+  flex-wrap: nowrap;
+  width: 30%;
+}
+
+.rootBtn, .typeBtn{
+  width: 25%;
+  height: 50px;
   color: white;
+  background-color: #0b4e10;
+  border: 1px solid white;
+  border-radius: 20px;
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 30px;
+  margin: 15px 5px 0 0;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.selected{
+  background-color: #2ebe38;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#strings-marker {
+  position:absolute;
+  top:0;
+  left:40%;
+  width:16px;
+  background:rgba(62, 102, 11, 0.7);
+  border:1px solid #fff;
+  border-radius:100px;
+  pointer-events:none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .fretboard-container {
+    justify-content: left;
+    overflow: auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .rootNoteContainer, .chordTypeContainer{
+    width: 100%;
+  }
+
+  .rootBtn, .typeBtn{
+
+    font-size: 25px;
+  }
+
+  .fret-markers{
+    left: 14px;
   }
 }

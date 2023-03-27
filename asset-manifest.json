@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/NowSoundz/static/css/main.55c55a04.css",
+    "main.js": "/NowSoundz/static/js/main.cf58e77e.js",
+    "static/js/787.f2479fe1.chunk.js": "/NowSoundz/static/js/787.f2479fe1.chunk.js",
+    "index.html": "/NowSoundz/index.html",
+    "main.55c55a04.css.map": "/NowSoundz/static/css/main.55c55a04.css.map",
+    "main.cf58e77e.js.map": "/NowSoundz/static/js/main.cf58e77e.js.map",
+    "787.f2479fe1.chunk.js.map": "/NowSoundz/static/js/787.f2479fe1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.55c55a04.css",
+    "static/js/main.cf58e77e.js"
+  ]
+}
